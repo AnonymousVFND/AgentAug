@@ -142,7 +142,6 @@ class AL_Run():
                         source_real_ids.append(line.strip())
                 pd_all_gen=pd.read_json('./data/enhanced_v1_fakesv.json',orient='records',lines=True)
 
-            #池子里加入合成样本
             generated_pool=pd_all_gen[pd_all_gen.apply(lambda x: x['source'] != 'Human' and x['video_id'].split('_')[0] not in source_real_ids,axis=1)]['video_id'].tolist()
 
             initial_train=train_vids
